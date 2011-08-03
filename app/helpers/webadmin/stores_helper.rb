@@ -1,0 +1,2 @@
+module Webadmin::StoresHelper
+end

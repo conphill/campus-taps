@@ -1,0 +1,2 @@
+module Webadmin::BarsHelper
+end

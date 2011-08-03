@@ -1,0 +1,2 @@
+module Webadmin::WebadminHelper
+end

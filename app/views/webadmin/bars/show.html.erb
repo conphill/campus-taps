@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @bar.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @bar.description %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @bar.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @bar.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @bar.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @bar.zip %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @bar.phone %>
+</p>
+
+
+<%= link_to 'Edit', edit_bar_path(@bar) %> |
+<%= link_to 'Back', bars_path %>
