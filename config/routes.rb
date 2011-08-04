@@ -1,8 +1,8 @@
 CampusTaps::Application.routes.draw do
 
-  devise_for :admins, :path => 'webadmin',  :path_names => { :sign_in => 'admin-login', :sign_out => 'admin-logout' }
+  devise_for :admins, :path => '/webadmin',  :path_names => { :sign_in => 'admin-login', :sign_out => 'admin-logout' }
 
-  devise_for :managers, :path => 'managers', :path_names => { :sign_in => 'manager-login', :sign_out => 'manager-logout' }
+  devise_for :managers, :path => '/managers', :path_names => { :sign_in => 'manager-login', :sign_out => 'manager-logout' }
   
   resources :stores
 

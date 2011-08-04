@@ -20,6 +20,17 @@ class Webadmin::BarsController < Webadmin::WebadminController
       format.xml  { render :xml => @bar }
     end
   end
+  
+  # GET /bars/new
+  # GET /bars/new.xml
+  def new
+    @bar = Bar.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @bar }
+    end
+  end
 
   # GET /bars/1/edit
   def edit
