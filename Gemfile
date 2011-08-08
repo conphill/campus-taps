@@ -9,6 +9,7 @@ gem 'mysql2', '~> 0.2.6'
 gem 'devise'
 gem 'paperclip', '~> 2.3'
 gem 'jquery-rails'
+gem 'geocoder'
 
 # Use unicorn as the web server
 # gem 'unicorn'

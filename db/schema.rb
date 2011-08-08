@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110730151215) do
+ActiveRecord::Schema.define(:version => 20110808004544) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -35,12 +35,18 @@ ActiveRecord::Schema.define(:version => 20110730151215) do
     t.text     "description"
     t.string   "address"
     t.string   "city"
-    t.integer  "state"
+    t.integer  "state_id"
     t.string   "zip"
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "region_id"
+    t.string   "email"
+    t.float    "latitude"
+    t.float    "longitude"
   end
+
+  add_index "bars", ["state_id"], :name => "index_bars_on_state_id"
 
   create_table "managers", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -60,8 +66,15 @@ ActiveRecord::Schema.define(:version => 20110730151215) do
   add_index "managers", ["email"], :name => "index_managers_on_email", :unique => true
   add_index "managers", ["reset_password_token"], :name => "index_managers_on_reset_password_token", :unique => true
 
-  create_table "state", :primary_key => "state_id", :force => true do |t|
-    t.string "state",      :limit => 32, :null => false
+  create_table "regions", :force => true do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", :force => true do |t|
+    t.string "name",       :limit => 32, :default => "", :null => false
     t.string "state_abbr", :limit => 8
   end
 
@@ -70,11 +83,17 @@ ActiveRecord::Schema.define(:version => 20110730151215) do
     t.text     "description"
     t.string   "address"
     t.string   "city"
-    t.integer  "state"
+    t.integer  "state_id"
     t.string   "zip"
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "region_id"
+    t.string   "email"
+    t.float    "latitude"
+    t.float    "longitude"
   end
+
+  add_index "stores", ["state_id"], :name => "index_stores_on_state_id"
 
 end
