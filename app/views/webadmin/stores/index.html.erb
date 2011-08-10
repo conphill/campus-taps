@@ -23,13 +23,13 @@
     <td><%= store.state %></td>
     <td><%= store.zip %></td>
     <td><%= store.phone %></td>
-    <td><%= link_to 'Show', store %></td>
-    <td><%= link_to 'Edit', edit_store_path(store) %></td>
-    <td><%= link_to 'Destroy', store, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', webadmin_store %></td>
+    <td><%= link_to 'Edit', edit_webadmin_store_path(store) %></td>
+    <td><%= link_to 'Destroy', webadmin_store, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Store', new_store_path %>
+<%= link_to 'New Store', new_webadmin_store_path %>

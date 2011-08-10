@@ -68,4 +68,16 @@ class Webadmin::BarsController < Webadmin::WebadminController
       end
     end
   end
+  
+  # DELETE /bars/1
+  # DELETE /bars/1.xml
+  def destroy
+    @bar = Bar.find(params[:id])
+    @bar.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(bars_url) }
+      format.xml  { head :ok }
+    end
+  end
 end

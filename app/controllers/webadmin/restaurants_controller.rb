@@ -1,4 +1,4 @@
-class Webadmin::RestaurantsController < ApplicationController
+class Webadmin::RestaurantsController < Webadmin::WebadminController
   def index
     @restaurants = Restaurant.all
     
