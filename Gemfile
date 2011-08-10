@@ -10,6 +10,7 @@ gem 'devise'
 gem 'paperclip', '~> 2.3'
 gem 'jquery-rails'
 gem 'geocoder'
+gem "oa-oauth", :require => "omniauth/oauth"
 
 # Use unicorn as the web server
 # gem 'unicorn'
