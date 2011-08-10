@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110810015451) do
+ActiveRecord::Schema.define(:version => 20110810024550) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20110810015451) do
     t.datetime "updated_at"
   end
 
+  add_index "regions", ["state_id"], :name => "index_regions_on_state_id"
+
   create_table "restaurants", :force => true do |t|
     t.string   "name"
     t.string   "address"
@@ -84,6 +86,8 @@ ActiveRecord::Schema.define(:version => 20110810015451) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "restaurants", ["region_id"], :name => "index_restaurants_on_region_id"
 
   create_table "states", :force => true do |t|
     t.string "name",       :limit => 32, :default => "", :null => false

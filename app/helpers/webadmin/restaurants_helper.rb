@@ -1,0 +1,2 @@
+module Webadmin::RestaurantsHelper
+end

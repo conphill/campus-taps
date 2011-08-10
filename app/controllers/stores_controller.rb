@@ -32,11 +32,6 @@ class StoresController < ApplicationController
     end
   end
 
-  # GET /stores/1/edit
-  def edit
-    @store = Store.find(params[:id])
-  end
-
   # POST /stores
   # POST /stores.xml
   def create
@@ -51,6 +46,11 @@ class StoresController < ApplicationController
         format.xml  { render :xml => @store.errors, :status => :unprocessable_entity }
       end
     end
+  end
+
+  # GET /stores/1/edit
+  def edit
+    @store = Store.find(params[:id])
   end
 
   # PUT /stores/1

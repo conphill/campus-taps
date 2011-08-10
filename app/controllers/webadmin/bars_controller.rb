@@ -36,6 +36,22 @@ class Webadmin::BarsController < Webadmin::WebadminController
   def edit
     @bar = Bar.find(params[:id])
   end
+  
+  # POST /bars
+  # POST /bars.xml
+  def create
+    @bar = Bar.new(params[:bar])
+
+    respond_to do |format|
+      if @bar.save
+        format.html { redirect_to(@bar, :notice => 'Bar was successfully created.') }
+        format.xml  { render :xml => @bar, :status => :created, :location => @bar }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @bar.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
   # PUT /bars/1
   # PUT /bars/1.xml

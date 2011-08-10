@@ -4,9 +4,7 @@ CampusTaps::Application.routes.draw do
 
   devise_for :managers, :path => '/managers', :path_names => { :sign_in => 'manager-login', :sign_out => 'manager-logout' }
   
-  resources :stores
-
-  resources :bars
+  resources :stores, :bars, :restaurants
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,7 +50,7 @@ CampusTaps::Application.routes.draw do
     namespace :webadmin do
       # Directs /admin/products/* to Admin::ProductsController
       # (app/controllers/admin/products_controller.rb)
-      resources :bars, :stores
+      resources :bars, :stores, :restaurants
     end
 
   # You can have the root of your site routed with "root"
