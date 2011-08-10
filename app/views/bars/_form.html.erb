@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :state %><br />
-    <%= f.text_field :state %>
+    <%= collection_select(:bar, :state_id, State.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :zip %><br />
