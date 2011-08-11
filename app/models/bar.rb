@@ -3,7 +3,7 @@ class Bar < ActiveRecord::Base
   belongs_to :region
   
   geocoded_by :geocode_address
-  after_validation :geocode, :if => :address_changed?
+  after_validation :geocode
   
   def geocode_address
     address + ", " + city + ", " + self.state.state_abbr

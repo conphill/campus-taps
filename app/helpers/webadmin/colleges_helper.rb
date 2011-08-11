@@ -1,0 +1,2 @@
+module Webadmin::CollegesHelper
+end
