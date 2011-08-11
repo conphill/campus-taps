@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  description: MyText
-  address: MyString
-  city: MyString
-  state: 1
-  zip: MyString
-  phone: MyString
+  name: Murphy's Bar
+  description: Good Old-Fashioned Irish Pub.
+  address: 123 Main Street
+  city: Baltimore
+  state: 21
+  zip: 10001
+  phone: 212391239
 
 two:
   name: MyString
