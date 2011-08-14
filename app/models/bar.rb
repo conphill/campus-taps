@@ -1,6 +1,7 @@
 class Bar < ActiveRecord::Base
   belongs_to :state
   belongs_to :region
+  has_many :reviews
   
   geocoded_by :geocode_address
   after_validation :geocode

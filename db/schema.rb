@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110811035450) do
+ActiveRecord::Schema.define(:version => 20110814152222) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -104,6 +104,15 @@ ActiveRecord::Schema.define(:version => 20110811035450) do
   end
 
   add_index "restaurants", ["region_id"], :name => "index_restaurants_on_region_id"
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "bar_id"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "states", :force => true do |t|
     t.string "name",       :limit => 32, :default => "", :null => false

@@ -1,5 +1,7 @@
 CampusTaps::Application.routes.draw do
 
+  resources :reviews
+
   resources :colleges
 
   devise_for :admins, :path => '/webadmin',  :path_names => { :sign_in => 'admin-login', :sign_out => 'admin-logout' }
