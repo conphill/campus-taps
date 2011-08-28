@@ -1,5 +1,7 @@
 CampusTaps::Application.routes.draw do
 
+  resources :events
+
   resources :reviews
 
   resources :colleges
