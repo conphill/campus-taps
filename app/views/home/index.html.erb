@@ -1,6 +1,7 @@
 <h1>Home#index</h1>
 <% @events.each do |e| %>
 <p><%= e.name %></p>
+<p><%= e.bar.name %></p>
 <p><%= e.description %></p>
 <p><%= image_tag e.flyer.url %></p>
 <% end %>
