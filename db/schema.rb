@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110828233359) do
+ActiveRecord::Schema.define(:version => 20110829004144) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -74,7 +74,10 @@ ActiveRecord::Schema.define(:version => 20110828233359) do
     t.string   "flyer_content_type"
     t.integer  "flyer_file_size"
     t.datetime "flyer_updated_at"
+    t.integer  "bar_id"
   end
+
+  add_index "events", ["bar_id"], :name => "index_events_on_bar_id"
 
   create_table "managers", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

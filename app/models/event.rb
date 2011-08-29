@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  belongs_to :bar
+  
   has_attached_file :flyer, :styles => { :small => "300x300>" },
                     :url => "/assets/events/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/events/:id/:style/:basename.:extension"
