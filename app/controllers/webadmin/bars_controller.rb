@@ -13,7 +13,7 @@ class Webadmin::BarsController < Webadmin::WebadminController
   # GET /bars/1
   # GET /bars/1.xml
   def show
-    @bar = Bar.find(params[:id])
+    @bar = Bar.find_by_permalink(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class Webadmin::BarsController < Webadmin::WebadminController
 
   # GET /bars/1/edit
   def edit
-    @bar = Bar.find(params[:id])
+    @bar = Bar.find_by_permalink(params[:id])
   end
   
   # POST /bars
@@ -56,7 +56,7 @@ class Webadmin::BarsController < Webadmin::WebadminController
   # PUT /bars/1
   # PUT /bars/1.xml
   def update
-    @bar = Bar.find(params[:id])
+    @bar = Bar.find_by_permalink(params[:id])
 
     respond_to do |format|
       if @bar.update_attributes(params[:bar])
@@ -72,7 +72,7 @@ class Webadmin::BarsController < Webadmin::WebadminController
   # DELETE /bars/1
   # DELETE /bars/1.xml
   def destroy
-    @bar = Bar.find(params[:id])
+    @bar = Bar.find_by_permalink(params[:id])
     @bar.destroy
 
     respond_to do |format|

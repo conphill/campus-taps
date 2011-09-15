@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110829004144) do
+ActiveRecord::Schema.define(:version => 20110915042903) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20110829004144) do
     t.string   "email"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "permalink"
   end
 
   add_index "bars", ["state_id"], :name => "index_bars_on_state_id"
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20110829004144) do
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink"
   end
 
   add_index "colleges", ["region_id"], :name => "index_colleges_on_region_id"
@@ -92,8 +94,10 @@ ActiveRecord::Schema.define(:version => 20110829004144) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "bar_id"
   end
 
+  add_index "managers", ["bar_id"], :name => "bar_id"
   add_index "managers", ["email"], :name => "index_managers_on_email", :unique => true
   add_index "managers", ["reset_password_token"], :name => "index_managers_on_reset_password_token", :unique => true
 
@@ -102,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20110829004144) do
     t.integer  "state_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink"
   end
 
   add_index "regions", ["state_id"], :name => "index_regions_on_state_id"
@@ -148,6 +153,7 @@ ActiveRecord::Schema.define(:version => 20110829004144) do
     t.string   "email"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "permalink"
   end
 
   add_index "stores", ["state_id"], :name => "index_stores_on_state_id"

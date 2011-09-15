@@ -1,7 +1,12 @@
-<h1>Home#index</h1>
-<% @events.each do |e| %>
-<p><%= e.name %></p>
-<p><%= e.bar.name %></p>
-<p><%= e.description %></p>
-<p><%= image_tag e.flyer.url %></p>
-<% end %>
+<a href="/"><h1>Campus Taps</h1></a>
+
+<div id="home-specials">
+	<% @events.each do |e| %>
+	<div>
+		<p><%= e.name %></p>
+		<p><%= link_to e.bar.name, e.bar %></p>
+		<p><%= e.description %></p>
+		<p><%= image_tag e.flyer.url(:small), :size => '300x300' %></p>
+	</div>
+	<% end %>
+</div>

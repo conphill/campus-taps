@@ -13,7 +13,7 @@ class Webadmin::CollegesController < Webadmin::WebadminController
   # GET /colleges/1
   # GET /colleges/1.xml
   def show
-    @college = College.find(params[:id])
+    @college = College.find_by_permalink(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class Webadmin::CollegesController < Webadmin::WebadminController
 
   # GET /colleges/1/edit
   def edit
-    @college = College.find(params[:id])
+    @college = College.find_by_permalink(params[:id])
   end
 
   # POST /colleges
@@ -56,7 +56,7 @@ class Webadmin::CollegesController < Webadmin::WebadminController
   # PUT /colleges/1
   # PUT /colleges/1.xml
   def update
-    @college = College.find(params[:id])
+    @college = College.find_by_permalink(params[:id])
 
     respond_to do |format|
       if @college.update_attributes(params[:college])
@@ -72,7 +72,7 @@ class Webadmin::CollegesController < Webadmin::WebadminController
   # DELETE /colleges/1
   # DELETE /colleges/1.xml
   def destroy
-    @college = College.find(params[:id])
+    @college = College.find_by_permalink(params[:id])
     @college.destroy
 
     respond_to do |format|

@@ -58,7 +58,7 @@ CampusTaps::Application.routes.draw do
     namespace :webadmin do
       # Directs /admin/products/* to Admin::ProductsController
       # (app/controllers/admin/products_controller.rb)
-      resources :bars, :stores, :restaurants
+      resources :bars, :stores, :restaurants, :colleges
     end
 
   # You can have the root of your site routed with "root"

@@ -6,9 +6,22 @@ class Bar < ActiveRecord::Base
   has_many :events, :dependent => :destroy
   
   geocoded_by :geocode_address
+  
+  before_save :make_permalink
+  before_update :make_permalink
   after_validation :geocode
+  
+  def to_param
+    "#{name.parameterize}"
+  end
   
   def geocode_address
     address + ", " + city + ", " + self.state.state_abbr
   end
+  
+  private
+    def make_permalink
+      self.permalink = name.parameterize
+    end
+  
 end

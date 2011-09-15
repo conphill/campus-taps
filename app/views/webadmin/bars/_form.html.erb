@@ -1,4 +1,4 @@
-<%= form_for(@bar) do |f| %>
+<%= form_for [:webadmin,@bar] do |f| %>
   <% if @bar.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bar.errors.count, "error") %> prohibited this bar from being saved:</h2>
