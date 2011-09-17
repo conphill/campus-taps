@@ -5,11 +5,11 @@ class Region < ActiveRecord::Base
   before_update :make_permalink
   
   def to_param
-    "#{name.parameterize}"
+    "#{name.parameterize}-#{state.name.parameterize}"
   end
   
   private
     def make_permalink
-      self.permalink = name.parameterize
+      self.permalink = name.parameterize+"-"+region.name.parameterize
     end
 end

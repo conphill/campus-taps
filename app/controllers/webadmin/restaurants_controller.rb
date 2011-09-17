@@ -7,9 +7,18 @@ class Webadmin::RestaurantsController < Webadmin::WebadminController
       format.xml  { render :xml => @restaurants }
     end
   end
+  
+  def show
+    @restaurant = Restaurant.find_by_permalink(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @restaurant }
+    end
+  end
 
   def new
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.new
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,7 +31,7 @@ class Webadmin::RestaurantsController < Webadmin::WebadminController
 
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to(@restaurant, :notice => 'Restaurant was successfully created.') }
+        format.html { redirect_to([:webadmin,@restaurant], :notice => 'Restaurant was successfully created.') }
         format.xml  { render :xml => @restaurant, :status => :created, :location => @restaurant }
       else
         format.html { render :action => "new" }
@@ -40,7 +49,7 @@ class Webadmin::RestaurantsController < Webadmin::WebadminController
     
     respond_to do |format|
       if @restaurant.update_attributes(params[:restaurant])
-        format.html { redirect_to(@restaurant, :notice => 'Restaurant was successfully created.') }
+        format.html { redirect_to([:webadmin,@restaurant], :notice => 'Restaurant was successfully created.') }
         format.xml  { render :xml => @restaurant, :status => :created, :location => @restaurant }
       else
         format.html { render :action => "new" }
@@ -54,7 +63,7 @@ class Webadmin::RestaurantsController < Webadmin::WebadminController
     @restaurant.destroy
     
     respond_to do |format|
-      format.html { redirect_to(restaurants_url) }
+      format.html { redirect_to(webadmin_restaurants_url) }
       format.xml  { head :ok }
     end
   end

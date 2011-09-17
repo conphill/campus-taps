@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find_by_permalink(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

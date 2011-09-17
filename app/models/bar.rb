@@ -12,7 +12,7 @@ class Bar < ActiveRecord::Base
   after_validation :geocode
   
   def to_param
-    "#{name.parameterize}"
+    "#{name.parameterize}-#{region.name.parameterize}"
   end
   
   def geocode_address
@@ -21,7 +21,7 @@ class Bar < ActiveRecord::Base
   
   private
     def make_permalink
-      self.permalink = name.parameterize
+      self.permalink = name.parameterize+"-"+region.name.parameterize
     end
   
 end

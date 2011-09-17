@@ -25,4 +25,6 @@
   <%= @restaurant.hours %>
 </p>
 
-<%= link_to 'Back', restaurants_path %>
+<%= link_to 'Edit', edit_webadmin_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', webadmin_restaurants_path %> | 
+<%= link_to 'New', new_webadmin_restaurant_path %>

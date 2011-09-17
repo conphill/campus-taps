@@ -9,7 +9,7 @@ class Store < ActiveRecord::Base
   after_validation :geocode
       
   def to_param
-    "#{name.parameterize}"
+    "#{name.parameterize}-#{region.name.parameterize}"
   end    
       
   def geocode_address

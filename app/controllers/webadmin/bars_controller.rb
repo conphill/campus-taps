@@ -44,7 +44,7 @@ class Webadmin::BarsController < Webadmin::WebadminController
 
     respond_to do |format|
       if @bar.save
-        format.html { redirect_to(@bar, :notice => 'Bar was successfully created.') }
+        format.html { redirect_to([:webadmin,@bar], :notice => 'Bar was successfully created.') }
         format.xml  { render :xml => @bar, :status => :created, :location => @bar }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class Webadmin::BarsController < Webadmin::WebadminController
 
     respond_to do |format|
       if @bar.update_attributes(params[:bar])
-        format.html { redirect_to(@bar, :notice => 'Bar was successfully updated.') }
+        format.html { redirect_to([:webadmin,@bar], :notice => 'Bar was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +76,7 @@ class Webadmin::BarsController < Webadmin::WebadminController
     @bar.destroy
 
     respond_to do |format|
-      format.html { redirect_to(bars_url) }
+      format.html { redirect_to(webadmin_bars_url) }
       format.xml  { head :ok }
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110915042903) do
+ActiveRecord::Schema.define(:version => 20110917175939) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20110915042903) do
     t.string   "permalink"
   end
 
+  add_index "bars", ["permalink"], :name => "index_bars_on_permalink"
   add_index "bars", ["state_id"], :name => "index_bars_on_state_id"
 
   create_table "colleges", :force => true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20110915042903) do
     t.string   "permalink"
   end
 
+  add_index "colleges", ["permalink"], :name => "index_colleges_on_permalink"
   add_index "colleges", ["region_id"], :name => "index_colleges_on_region_id"
   add_index "colleges", ["state_id"], :name => "index_colleges_on_state_id"
 
@@ -121,8 +123,10 @@ ActiveRecord::Schema.define(:version => 20110915042903) do
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink"
   end
 
+  add_index "restaurants", ["permalink"], :name => "index_restaurants_on_permalink"
   add_index "restaurants", ["region_id"], :name => "index_restaurants_on_region_id"
 
   create_table "reviews", :force => true do |t|
@@ -156,6 +160,7 @@ ActiveRecord::Schema.define(:version => 20110915042903) do
     t.string   "permalink"
   end
 
+  add_index "stores", ["permalink"], :name => "index_stores_on_permalink"
   add_index "stores", ["state_id"], :name => "index_stores_on_state_id"
 
 end
