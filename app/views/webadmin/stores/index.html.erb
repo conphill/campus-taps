@@ -23,7 +23,7 @@
     <td><%= store.state.state_abbr %></td>
     <td><%= store.zip %></td>
     <td><%= store.phone %></td>
-    <td><%= link_to 'Show', store %></td>
+    <td><%= link_to 'Show', [:webadmin,store] %></td>
     <td><%= link_to 'Edit', edit_store_path(store) %></td>
     <td><%= link_to 'Destroy', store, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

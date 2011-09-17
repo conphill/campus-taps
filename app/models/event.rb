@@ -7,8 +7,4 @@ class Event < ActiveRecord::Base
   
   validates_attachment_size :flyer, :less_than => 5.megabytes
   validates_attachment_content_type :flyer, :content_type => ['image/jpeg', 'image/png']
-  
-  def to_param
-    "#{id}-#{name.parameterize}"
-  end
 end
