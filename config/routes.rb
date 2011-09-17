@@ -2,17 +2,11 @@ CampusTaps::Application.routes.draw do
 
   get "home/index"
 
-  resources :events
-
-  resources :reviews
-
-  resources :colleges
+  resources :stores, :bars, :restaurants, :events, :reviews, :colleges
 
   devise_for :admins, :path => '/webadmin',  :path_names => { :sign_in => 'admin-login', :sign_out => 'admin-logout' }
 
   devise_for :managers, :path => '/managers', :path_names => { :sign_in => 'manager-login', :sign_out => 'manager-logout' }
-  
-  resources :stores, :bars, :restaurants
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
