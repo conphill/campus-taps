@@ -10,6 +10,6 @@ class Region < ActiveRecord::Base
   
   private
     def make_permalink
-      self.permalink = name.parameterize+"-"+region.name.parameterize
+      self.permalink = name.parameterize+"-"+state.name.parameterize
     end
 end
