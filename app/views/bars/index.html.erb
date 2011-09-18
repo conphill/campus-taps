@@ -16,7 +16,7 @@
 
 <% @bars.each do |bar| %>
   <tr>
-    <td><%= bar.name %></td>
+    <td><%= link_to bar.name, bar %></td>
     <td><%= bar.description %></td>
     <td><%= bar.address %></td>
     <td><%= bar.city %></td>

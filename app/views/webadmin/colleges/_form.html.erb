@@ -24,12 +24,12 @@
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :region %><br />
-    <%= collection_select(:college, :region_id, Region.all, :id, :name) %>
-  </div>
-  <div class="field">
     <%= f.label :state %><br />
     <%= collection_select(:college, :state_id, State.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :region %><br />
+    <%= collection_select(:college, :region_id, Region.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :zip %><br />

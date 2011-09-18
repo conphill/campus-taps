@@ -33,9 +33,9 @@ class CollegesController < ApplicationController
   # end
 
   # GET /colleges/1/edit
-  def edit
-    @college = College.find_by_permalink(params[:id])
-  end
+  # def edit
+  #   @college = College.find_by_permalink(params[:id])
+  # end
 
   # POST /colleges
   # POST /colleges.xml
@@ -55,19 +55,19 @@ class CollegesController < ApplicationController
 
   # PUT /colleges/1
   # PUT /colleges/1.xml
-  def update
-    @college = College.find_by_permalink(params[:id])
-
-    respond_to do |format|
-      if @college.update_attributes(params[:college])
-        format.html { redirect_to(@college, :notice => 'College was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @college.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   @college = College.find_by_permalink(params[:id])
+  # 
+  #   respond_to do |format|
+  #     if @college.update_attributes(params[:college])
+  #       format.html { redirect_to(@college, :notice => 'College was successfully updated.') }
+  #       format.xml  { head :ok }
+  #     else
+  #       format.html { render :action => "edit" }
+  #       format.xml  { render :xml => @college.errors, :status => :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /colleges/1
   # DELETE /colleges/1.xml

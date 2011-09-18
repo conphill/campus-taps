@@ -1,5 +1,33 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Name:</b>
+  <%= @college.name %>
+</p>
 
-<%= link_to 'Edit', edit_college_path(@college) %> |
+<p>
+  <b>Address:</b>
+  <%= @college.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @college.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @college.state.state_abbr %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @college.zip %>
+</p>
+
+<p>
+  <b>Region:</b>
+  <%= @college.region.name %>
+</p>
+
 <%= link_to 'Back', colleges_path %>
