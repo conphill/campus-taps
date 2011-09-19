@@ -13,7 +13,7 @@
 		<td><%= college.city %></td>
 		<td><%= college.state.state_abbr %></td>
     <td><%= link_to 'Show', [:webadmin,college] %></td>
-    <td><%= link_to 'Edit', edit_college_path(college) %></td>
+    <td><%= link_to 'Edit', edit_webadmin_college_path(college) %></td>
     <td><%= link_to 'Destroy', college, :confirm => 'Are you sure?', :method => :delete %></td>
 	</tr>
 <% end %>	
