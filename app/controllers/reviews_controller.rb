@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new.xml
   def new
     @review = Review.new
-    @bar = params[:bar_id]
+    @bar = Bar.find_by_permalink(params[:id])
 
     respond_to do |format|
       format.html # new.html.erb

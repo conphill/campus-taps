@@ -6,6 +6,9 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+# Create States
+table = 'states'
+ActiveRecord::Base.connection.execute("TRUNCATE #{table}")
 states = State.create([
           {:name => 'Alabama', :state_abbr => 'AL'},
           {:name => 'Alaska', :state_abbr => 'AK'},
@@ -58,3 +61,14 @@ states = State.create([
           {:name => 'West Virginia', :state_abbr => 'WV'},
           {:name => 'Wisconsin', :state_abbr => 'WI'},
           {:name => 'Wyoming', :state_abbr => 'WY'} ])
+
+# Create Regions
+table = 'regions'
+ActiveRecord::Base.connection.execute("TRUNCATE #{table}")
+baltimore_regions = Region.create([
+          {:name => 'Loyola', :state_id => 21},
+          {:name => 'Towson', :state_id => 21},
+          {:name => 'Johns Hopkins', :state_id => 21},
+          {:name => 'Downtown Baltimore', :state_id => 21},
+          {:name => 'Fells Point', :state_id => 21},
+          {:name => 'Federal Hill', :state_id => 21}])
