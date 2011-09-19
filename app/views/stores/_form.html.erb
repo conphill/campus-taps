@@ -36,6 +36,10 @@
     <%= collection_select(:store, :state_id, State.all, :id, :name) %>
   </div>
   <div class="field">
+    <%= f.label :region %><br />
+    <%= collection_select(:store, :region_id, Region.all, :id, :name) %>
+  </div>
+  <div class="field">
     <%= f.label :zip %><br />
     <%= f.text_field :zip %>
   </div>
