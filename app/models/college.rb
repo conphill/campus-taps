@@ -4,6 +4,8 @@ class College < ActiveRecord::Base
   
   geocoded_by :geocode_address
   
+  validates_presence_of :address
+  
   before_save :make_permalink
   before_update :make_permalink
   after_validation :geocode

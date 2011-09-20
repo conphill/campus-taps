@@ -25,7 +25,9 @@
   </div>
   <div class="field">
     <%= f.label :state %><br />
-    <%= collection_select(:college, :state_id, State.all, :id, :name) %>
+    <select id="college_state_id" name="college[state_id]">
+	<option value="21">Maryland</option>
+	</select>
   </div>
   <div class="field">
     <%= f.label :region %><br />
