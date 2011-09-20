@@ -32,7 +32,7 @@ class Webadmin::RestaurantsController < Webadmin::WebadminController
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to([:webadmin,@restaurant], :notice => 'Restaurant was successfully created.') }
-        format.xml  { render :xml => @restaurant, :status => :created, :location => @restaurant }
+        format.xml  { render :xml => @restaurant, :status => :created, :location => [:webadmin,@restaurant] }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @restaurant.errors, :status => :unprocessable_entity }
@@ -50,7 +50,7 @@ class Webadmin::RestaurantsController < Webadmin::WebadminController
     respond_to do |format|
       if @restaurant.update_attributes(params[:restaurant])
         format.html { redirect_to([:webadmin,@restaurant], :notice => 'Restaurant was successfully created.') }
-        format.xml  { render :xml => @restaurant, :status => :created, :location => @restaurant }
+        format.xml  { render :xml => @restaurant, :status => :created, :location => [:webadmin,@restaurant] }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @restaurant.errors, :status => :unprocessable_entity }

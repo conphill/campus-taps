@@ -25,7 +25,7 @@
     <td><%= store.phone %></td>
     <td><%= link_to 'Show', [:webadmin,store] %></td>
     <td><%= link_to 'Edit', edit_webadmin_store_path(store) %></td>
-    <td><%= link_to 'Destroy', store, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', [:webadmin,store], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

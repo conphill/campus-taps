@@ -39,8 +39,8 @@ class Webadmin::StoresController < Webadmin::WebadminController
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to(@store, :notice => 'Store was successfully created.') }
-        format.xml  { render :xml => @store, :status => :created, :location => @store }
+        format.html { redirect_to([:webadmin,@store], :notice => 'Store was successfully created.') }
+        format.xml  { render :xml => @store, :status => :created, :location => [:webadmin,@store] }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @store.errors, :status => :unprocessable_entity }
@@ -60,7 +60,7 @@ class Webadmin::StoresController < Webadmin::WebadminController
 
     respond_to do |format|
       if @store.update_attributes(params[:store])
-        format.html { redirect_to(@store, :notice => 'Store was successfully updated.') }
+        format.html { redirect_to([:webadmin,@store], :notice => 'Store was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

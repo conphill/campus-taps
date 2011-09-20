@@ -18,7 +18,7 @@ class Store < ActiveRecord::Base
   
   private
     def make_permalink
-      self.permalink = name.parameterize
+      self.permalink = name.parameterize+"-"+region.name.parameterize
     end
     
 end

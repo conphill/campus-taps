@@ -45,7 +45,7 @@ class Webadmin::BarsController < Webadmin::WebadminController
     respond_to do |format|
       if @bar.save
         format.html { redirect_to([:webadmin,@bar], :notice => 'Bar was successfully created.') }
-        format.xml  { render :xml => @bar, :status => :created, :location => @bar }
+        format.xml  { render :xml => @bar, :status => :created, :location => [:webadmin,@bar] }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @bar.errors, :status => :unprocessable_entity }
