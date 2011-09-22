@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110917202114) do
+ActiveRecord::Schema.define(:version => 20110920203123) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20110917202114) do
     t.integer  "bar_id"
   end
 
-  add_index "managers", ["bar_id"], :name => "bar_id"
+  add_index "managers", ["bar_id"], :name => "index_managers_on_bar_id"
   add_index "managers", ["email"], :name => "index_managers_on_email", :unique => true
   add_index "managers", ["reset_password_token"], :name => "index_managers_on_reset_password_token", :unique => true
 
@@ -143,11 +143,6 @@ ActiveRecord::Schema.define(:version => 20110917202114) do
     t.string "state_abbr"
   end
 
-  create_table "states_old", :force => true do |t|
-    t.string "name",       :limit => 32, :default => "", :null => false
-    t.string "state_abbr", :limit => 8
-  end
-
   create_table "stores", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -167,5 +162,23 @@ ActiveRecord::Schema.define(:version => 20110917202114) do
 
   add_index "stores", ["permalink"], :name => "index_stores_on_permalink"
   add_index "stores", ["state_id"], :name => "index_stores_on_state_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
