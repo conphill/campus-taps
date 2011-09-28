@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110920203123) do
+ActiveRecord::Schema.define(:version => 20110928004903) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -130,13 +130,16 @@ ActiveRecord::Schema.define(:version => 20110920203123) do
   add_index "restaurants", ["region_id"], :name => "index_restaurants_on_region_id"
 
   create_table "reviews", :force => true do |t|
-    t.integer  "bar_id"
     t.text     "body"
     t.integer  "user_id"
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "reviewable_id"
+    t.string   "reviewable_type"
   end
+
+  add_index "reviews", ["reviewable_id", "reviewable_type"], :name => "index_reviews_on_reviewable_id_and_reviewable_type"
 
   create_table "states", :force => true do |t|
     t.string "name"

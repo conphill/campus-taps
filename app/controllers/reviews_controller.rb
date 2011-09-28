@@ -1,8 +1,12 @@
 class ReviewsController < ApplicationController
+  before_filter :find_reviewable
+  
   # GET /reviews
   # GET /reviews.xml
   def index
-    @reviews = Review.all
+    @reviewable = find_reviewable
+    @reviews = @reviewable.reviews
+    # @reviews = Review.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,11 +45,13 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.xml
   def create
-    @review = Review.new(params[:review])
+    # @review = Review.new(params[:review])
+    @review = @reviewable.review.create(params[:review])
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
+        # format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
+        format.html { redirect_to :controller => @reviewable.class.to_s.pluralize.downcase }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
       else
         format.html { render :action => "new" }
@@ -81,4 +87,10 @@ class ReviewsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+    def find_reviewable
+      @klass = params[:reviewable_type].capitalize.constantize
+      @reviewable = klass.find(params[:reviewable_id])
+    end
 end

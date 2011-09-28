@@ -16,6 +16,7 @@ class BarsController < ApplicationController
   # GET /bars/1.xml
   def show
     @bar = Bar.find_by_permalink(params[:id])
+    @reviews = @bar.reviews
 
     respond_to do |format|
       format.html # show.html.erb

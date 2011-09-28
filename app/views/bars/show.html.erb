@@ -45,6 +45,12 @@
   <%= @bar.phone %>
 </p>
 
+<div id="bar-reviews">
+	Reviews:<br />
+	<%= render @reviews %>
+	<br />
+</div>
+
 
 <%= link_to 'Edit', edit_bar_path(@bar) %> |
 <%= link_to 'Back', bars_path %>

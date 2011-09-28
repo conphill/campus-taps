@@ -4,7 +4,10 @@ CampusTaps::Application.routes.draw do
 
   get "home/index"
 
-  resources :stores, :bars, :restaurants, :events, :reviews, :colleges
+  resources :stores, :has_many => :reviews
+  resources :bars, :has_many => :reviews
+  resources :restaurants, :has_many => :reviews
+  resources :events, :reviews, :colleges
 
   devise_for :admins, :path => '/webadmin',  :path_names => { :sign_in => 'admin-login', :sign_out => 'admin-logout' }
 

@@ -1,5 +1,6 @@
 class Restaurant < ActiveRecord::Base
   belongs_to :region
+  has_many :reviews, :as => :reviewable, :dependent => :destroy
   
   geocoded_by :address
   validates_presence_of :region
