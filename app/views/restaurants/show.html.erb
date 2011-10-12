@@ -25,4 +25,10 @@
   <%= @restaurant.hours %>
 </p>
 
+<div id="restaurant-reviews">
+	Reviews:<br />
+	<%= render @reviews %>
+	<br />
+</div>
+
 <%= link_to 'Back', restaurants_path %>

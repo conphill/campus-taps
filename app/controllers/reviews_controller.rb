@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
   def index
     @reviewable = find_reviewable
     @reviews = @reviewable.reviews
-    # @reviews = Review.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,9 +27,10 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   # GET /reviews/new.xml
   def new
-    @review = Review.new
-    @bar = Bar.find_by_permalink(params[:id])
-
+    # @review = Review.new
+    @reviewable = find_reviewable
+    @review = @reviewable.review.new
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @review }
@@ -45,18 +45,15 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.xml
   def create
-    # @review = Review.new(params[:review])
-    @review = @reviewable.review.create(params[:review])
+    @reviewable = find_reviewable
+    @review = @reviewable.reviews.build(params[:review])
+    @review.user_id = params[:user_id]
 
-    respond_to do |format|
-      if @review.save
-        # format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
-        format.html { redirect_to :controller => @reviewable.class.to_s.pluralize.downcase }
-        format.xml  { render :xml => @review, :status => :created, :location => @review }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
-      end
+    if @review.save
+      # redirect_to @reviewable.class.new
+      redirect_to [@reviewable,@reviews]
+    else
+      render :action => 'new'
     end
   end
 
@@ -90,7 +87,7 @@ class ReviewsController < ApplicationController
   
   private
     def find_reviewable
-      @klass = params[:reviewable_type].capitalize.constantize
-      @reviewable = klass.find(params[:reviewable_id])
+      klass = params[:reviewable_type].capitalize.constantize
+      reviewable = klass.find(params[:reviewable_id])
     end
 end

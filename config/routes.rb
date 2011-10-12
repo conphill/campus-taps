@@ -1,13 +1,13 @@
 CampusTaps::Application.routes.draw do
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sign_out => 'users/sign_out' }
 
   get "home/index"
 
   resources :stores, :has_many => :reviews
   resources :bars, :has_many => :reviews
   resources :restaurants, :has_many => :reviews
-  resources :events, :reviews, :colleges
+  resources :events, :colleges, :reviews
 
   devise_for :admins, :path => '/webadmin',  :path_names => { :sign_in => 'admin-login', :sign_out => 'admin-logout' }
 
