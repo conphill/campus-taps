@@ -1,7 +1,7 @@
 class Store < ActiveRecord::Base
   belongs_to :state
   belongs_to :region  
-  # has_many :reviews, :as => :reviewable, :dependent => :destroy
+  has_many :products
   
   geocoded_by :geocode_address
   

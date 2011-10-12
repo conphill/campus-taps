@@ -7,7 +7,7 @@ CampusTaps::Application.routes.draw do
   resources :stores, :has_many => :reviews
   resources :bars, :has_many => :reviews
   resources :restaurants, :has_many => :reviews
-  resources :events, :colleges, :reviews
+  resources :events, :colleges, :reviews, :products
 
   devise_for :admins, :path => '/webadmin',  :path_names => { :sign_in => 'admin-login', :sign_out => 'admin-logout' }
 

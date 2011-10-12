@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111012022548) do
+ActiveRecord::Schema.define(:version => 20111012145512) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -107,6 +107,16 @@ ActiveRecord::Schema.define(:version => 20111012022548) do
   add_index "managers", ["bar_id"], :name => "index_managers_on_bar_id"
   add_index "managers", ["email"], :name => "index_managers_on_email", :unique => true
   add_index "managers", ["reset_password_token"], :name => "index_managers_on_reset_password_token", :unique => true
+
+  create_table "products", :force => true do |t|
+    t.string   "brand"
+    t.string   "name"
+    t.decimal  "price",               :precision => 10, :scale => 0
+    t.integer  "product_category_id"
+    t.integer  "store_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "regions", :force => true do |t|
     t.string   "name"

@@ -38,3 +38,30 @@
   <b>Phone:</b>
   <%= @store.phone %>
 </p>
+
+Prices:<br />
+<%= render @store.products %>
+<br />
+Add Product:
+<%= form_for(@store,@product) do |f| %>
+  <div class="field">
+    <%= f.label :product, :brand %><br />
+    <%= f.text_field :product, :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :name, "Size (i.e., 12pk, 1L)" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    $ <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :product_category_id %><br />
+    <%= f.text_field :product_category_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

@@ -56,8 +56,7 @@ class CreateStates < ActiveRecord::Migration
               {:name => 'Washington', :state_abbr => 'WA'},
               {:name => 'West Virginia', :state_abbr => 'WV'},
               {:name => 'Wisconsin', :state_abbr => 'WI'},
-              {:name => 'Wyoming', :state_abbr => 'WY'} ])
-    
+              {:name => 'Wyoming', :state_abbr => 'WY'} ])    
   end
 
   def self.down
