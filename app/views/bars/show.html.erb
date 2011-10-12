@@ -1,4 +1,11 @@
+<br />
+<div id="manager-controls">
+	<%= link_to 'Edit', edit_bar_path(@bar) %> | <%= link_to 'Back', bars_path %>
+</div>
+
 <p id="notice"><%= notice %></p>
+
+<%= image_tag @bar.logo.url(:small) %>
 
 <p>
   <b>Name:</b>
@@ -11,8 +18,8 @@
 </p>
 
 <p>
-  <b>Email:</b>
-  <%= @bar.email %>
+  <b>Specials:</b>
+  <%= @bar.specials %>
 </p>
 
 <p>
@@ -59,7 +66,3 @@
 		<% end %>
 	<% end %><br />
 </div>
-
-
-<%= link_to 'Edit', edit_bar_path(@bar) %> |
-<%= link_to 'Back', bars_path %>

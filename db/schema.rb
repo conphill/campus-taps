@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111005004941) do
+ActiveRecord::Schema.define(:version => 20111012022548) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(:version => 20111005004941) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "permalink"
+    t.text     "specials"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   add_index "bars", ["permalink"], :name => "index_bars_on_permalink"

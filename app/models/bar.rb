@@ -5,6 +5,13 @@ class Bar < ActiveRecord::Base
   has_many :reviews, :as => :reviewable, :dependent => :destroy
   has_many :events, :dependent => :destroy
   
+  has_attached_file :logo, :styles => { :small => "300x300>" },
+                    :url => "/assets/bars/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/bars/:id/:style/:basename.:extension"
+  
+  validates_attachment_size :logo, :less_than => 3.megabytes
+  validates_attachment_content_type :logo, :content_type => ['image/jpeg', 'image/png']
+  
   geocoded_by :geocode_address
   
   before_save :make_permalink
