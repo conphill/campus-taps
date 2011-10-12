@@ -11,7 +11,7 @@ class Bar < ActiveRecord::Base
   
   validates_attachment_size :logo, :less_than => 3.megabytes
   validates_attachment_content_type :logo, :content_type => ['image/jpeg', 'image/png']
-  
+  validates_presence_of :name, :address
   geocoded_by :geocode_address
   
   before_save :make_permalink

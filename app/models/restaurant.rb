@@ -3,7 +3,7 @@ class Restaurant < ActiveRecord::Base
   has_many :reviews, :as => :reviewable, :dependent => :destroy
   
   geocoded_by :address
-  validates_presence_of :region
+  validates_presence_of :name, :address
   
   before_save :make_permalink
   before_update :make_permalink

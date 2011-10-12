@@ -4,6 +4,7 @@ class Store < ActiveRecord::Base
   has_many :products
   
   geocoded_by :geocode_address
+  validates_presence_of :name, :address
   
   before_save :make_permalink
   before_update :make_permalink
