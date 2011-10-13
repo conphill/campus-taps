@@ -1,0 +1,8 @@
+<h1>Campus Taps Blog Admin</h1>
+<%= link_to "New Post", new_webadmin_post_path %>
+<% @posts.each do |post| %>
+  <h3><%= link_to post.title, [:webadmin,post] %></h3>
+  <small><%= post.created_at %></small>
+  <p><%= post.body %></p>
+<% end %>
+<br />
