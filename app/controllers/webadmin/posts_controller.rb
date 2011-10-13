@@ -1,4 +1,4 @@
-class Webadmin::PostsController < Webadmin::WebadminController
+class Webadmin::PostsController < Webadmin::WebadminController  
   def index
     @posts = Post.all
 

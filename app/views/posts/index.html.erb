@@ -3,7 +3,7 @@
 <% @posts.each do |post| %>
   <h3><%= link_to post.title, "/blog/#{post.id}" %></h3>
   <small><%= post.created_at %></small>
-  <p><%= post.body %></p>
+  <p><%=raw post.body %></p>
 <% end %>
 
 <br />

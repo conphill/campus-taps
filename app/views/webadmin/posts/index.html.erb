@@ -3,6 +3,6 @@
 <% @posts.each do |post| %>
   <h3><%= link_to post.title, [:webadmin,post] %></h3>
   <small>Created on: <%= post.created_at.strftime('%m/%d/%Y') %></small>
-  <p><%= post.body %></p>
+  <p><%=raw post.body %></p>
 <% end %>
 <br />
