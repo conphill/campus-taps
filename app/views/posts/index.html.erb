@@ -2,7 +2,7 @@
 
 <% @posts.each do |post| %>
   <h3><%= link_to post.title, "/blog/#{post.id}" %></h3>
-  <small><%= post.created_at %></small>
+  <small><%= post.created_at.strftime('%m/%d/%Y at %I:%M%p') %></small>
   <p><%=raw post.body %></p>
 <% end %>
 

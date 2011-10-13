@@ -2,7 +2,7 @@
 <%= link_to "New Post", new_webadmin_post_path %>
 <% @posts.each do |post| %>
   <h3><%= link_to post.title, [:webadmin,post] %></h3>
-  <small>Created on: <%= post.created_at.strftime('%m/%d/%Y') %></small>
+  <small>Created on: <%= post.created_at.strftime('%m/%d/%Y at %I:%M%p') %></small>
   <p><%=raw post.body %></p>
 <% end %>
 <br />
