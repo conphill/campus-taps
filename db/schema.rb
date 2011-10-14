@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111013174936) do
+ActiveRecord::Schema.define(:version => 20111014161919) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(:version => 20111013174936) do
 
   add_index "bars", ["permalink"], :name => "index_bars_on_permalink"
   add_index "bars", ["state_id"], :name => "index_bars_on_state_id"
+
+  create_table "blog_photos", :force => true do |t|
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
+  end
 
   create_table "colleges", :force => true do |t|
     t.string   "name"

@@ -1,9 +1,10 @@
-<h1>Listing posts</h1>
+<h1>Campus Taps Blog</h1>
 
 <% @posts.each do |post| %>
   <h3><%= link_to post.title, "/blog/#{post.id}" %></h3>
   <small><%= post.created_at.strftime('%m/%d/%Y at %I:%M%p') %></small>
-  <p><%=raw post.body %></p>
+  <p><%=raw smart_truncate(post.body, :words => 100) %></p>
+  <p><%= link_to "Read more...", "/blog/#{post.id}" %></p>
+  <p>0 Comments</p>
 <% end %>
-
 <br />

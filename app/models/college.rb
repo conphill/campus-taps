@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: colleges
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  address    :string(255)
+#  city       :string(255)
+#  region_id  :integer(4)
+#  state_id   :integer(4)
+#  zip        :string(255)
+#  latitude   :float
+#  longitude  :float
+#  created_at :datetime
+#  updated_at :datetime
+#  permalink  :string(255)
+#
+
 class College < ActiveRecord::Base
   belongs_to :state
   belongs_to :region
