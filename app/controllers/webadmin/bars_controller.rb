@@ -1,6 +1,4 @@
 class Webadmin::BarsController < Webadmin::WebadminController
-  # GET /bars
-  # GET /bars.xml
   def index
     @bars = Bar.all
 
@@ -10,8 +8,6 @@ class Webadmin::BarsController < Webadmin::WebadminController
     end
   end
 
-  # GET /bars/1
-  # GET /bars/1.xml
   def show
     @bar = Bar.find_by_permalink(params[:id])
 
@@ -21,8 +17,6 @@ class Webadmin::BarsController < Webadmin::WebadminController
     end
   end
   
-  # GET /bars/new
-  # GET /bars/new.xml
   def new
     @bar = Bar.new
 
@@ -32,13 +26,10 @@ class Webadmin::BarsController < Webadmin::WebadminController
     end
   end
 
-  # GET /bars/1/edit
   def edit
     @bar = Bar.find_by_permalink(params[:id])
   end
   
-  # POST /bars
-  # POST /bars.xml
   def create
     @bar = Bar.new(params[:bar])
 
@@ -53,8 +44,6 @@ class Webadmin::BarsController < Webadmin::WebadminController
     end
   end
 
-  # PUT /bars/1
-  # PUT /bars/1.xml
   def update
     @bar = Bar.find_by_permalink(params[:id])
 
@@ -69,8 +58,6 @@ class Webadmin::BarsController < Webadmin::WebadminController
     end
   end
   
-  # DELETE /bars/1
-  # DELETE /bars/1.xml
   def destroy
     @bar = Bar.find_by_permalink(params[:id])
     @bar.destroy

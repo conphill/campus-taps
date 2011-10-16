@@ -43,10 +43,10 @@ Prices:<br />
 <%= render @store.products %>
 <br />
 Add Product:
-<%= form_for(@store,@product) do |f| %>
+<%= form_for [@store,@product] do |f| %>
   <div class="field">
-    <%= f.label :product, :brand %><br />
-    <%= f.text_field :product, :brand %>
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
   </div>
   <div class="field">
     <%= f.label :name, "Size (i.e., 12pk, 1L)" %><br />

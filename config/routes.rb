@@ -1,17 +1,28 @@
 CampusTaps::Application.routes.draw do
 
+  get "home/index"
+  root :to => "home#index"
+
+  # general resources
+  resources :events, :colleges, :reviews, :products, :posts
+  
+  # polymorphic routes for reviews
+  resources :bars, :has_many => :reviews
+  resources :stores, :has_many => :reviews
+  resources :restaurants, :has_many => :reviews
+
+  # devise routes
+  devise_for :admins, :path => '/webadmin',  :path_names => { :sign_in => 'admin-login', :sign_out => 'admin-logout' }
+  devise_for :managers, :path => '/managers', :path_names => { :sign_in => 'manager-login', :sign_out => 'manager-logout' }
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sign_out => 'users/sign_out' }
 
-  get "home/index"
-
-  resources :stores, :has_many => :reviews
-  resources :bars, :has_many => :reviews
-  resources :restaurants, :has_many => :reviews
-  resources :events, :colleges, :reviews, :products
-
-  devise_for :admins, :path => '/webadmin',  :path_names => { :sign_in => 'admin-login', :sign_out => 'admin-logout' }
-
-  devise_for :managers, :path => '/managers', :path_names => { :sign_in => 'manager-login', :sign_out => 'manager-logout' }
+  # webadmin routes
+  namespace :webadmin do
+    resources :bars, :stores, :restaurants, :colleges, :posts
+  end
+  
+  match '/blog' => 'posts#index'
+  match '/blog/:id' => 'posts#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,17 +63,6 @@ CampusTaps::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-
-  # Sample resource route within a namespace:
-    namespace :webadmin do
-      # Directs /admin/products/* to Admin::ProductsController
-      # (app/controllers/admin/products_controller.rb)
-      resources :bars, :stores, :restaurants, :colleges
-    end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 
