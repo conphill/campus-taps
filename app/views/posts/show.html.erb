@@ -5,6 +5,8 @@
   <%= @post.title %>
 </p>
 
+<%= image_tag @post.banner_image.url(:default) %>
+
 <p>
   <b>Body:</b>
   <%=raw @post.body %>

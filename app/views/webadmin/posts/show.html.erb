@@ -5,6 +5,8 @@
   <%= @post.title %>
 </p>
 
+<%= image_tag @post.banner_image.url(:default) %>
+
 <p>
   <b>Body:</b>
   <%=raw @post.body %>
@@ -19,11 +21,6 @@
   <b>Permalink:</b>
   <%= @post.permalink %>
 </p>
-
-Photos:
-<% @post.blog_photos.each do |photo| %>
-  <%= image_tag photo.data.url %>
-<% end %>
 
 <%= link_to 'Edit', edit_webadmin_post_path(@post) %> |
 <%= link_to 'Back', webadmin_posts_path %>
