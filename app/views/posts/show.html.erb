@@ -5,13 +5,9 @@
   <%= @post.title %>
 </p>
 
-<%- if @post.banner_image.file? -%>
-<%= image_tag @post.banner_image.url(:default) %>
-<%- end -%>
+<%- if @post.banner_image.file? -%><%= image_tag @post.banner_image.url(:default) %><%- end -%>
 
 <p>
   <b>Body:</b>
   <%=raw @post.body %>
 </p>
-
-<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="campustaps">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>&nbsp;<g:plusone size="medium" annotation="none"></g:plusone>

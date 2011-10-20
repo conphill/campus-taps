@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   def index
+    @title = "Campus Taps | Restaurants"
     @restaurants = Restaurant.all
     
     respond_to do |format|
@@ -10,6 +11,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find_by_permalink(params[:id])
+    @title = "#{@restaurant.name} #{@restaurant.region.name}"
     @reviews = @restaurant.reviews
 
     respond_to do |format|

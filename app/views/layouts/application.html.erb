@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CampusTaps</title>
+  <title><%= @title %></title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults, 'plugins.js' %>
   <%= csrf_meta_tag %>
 </head>
-<body>
+<body>	
 	<%= render 'layouts/masthead' %>
 	<%= render 'layouts/main_nav' %>
+
 <%= yield %>
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-</body>
-</html>
+<br /><br />
+<div id="social_links">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="campustaps">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>&nbsp;<g:plusone size="medium" annotation="none"></g:plusone>&nbsp;<div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+</div>
+<%= render 'layouts/footer' %>

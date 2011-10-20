@@ -5,64 +5,44 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @bar.logo.url(:small) %>
+<%- if @bar.logo.file? -%><%= image_tag @bar.logo.url(:small) %><%- end -%>
 
 <p>
   <b>Name:</b>
   <%= @bar.name %>
 </p>
-
 <p>
   <b>Description:</b>
   <%= @bar.description %>
 </p>
-
 <p>
   <b>Specials:</b>
   <%= @bar.specials %>
 </p>
-
 <p>
   <b>Address:</b>
   <%= @bar.address %>
 </p>
-
 <p>
   <b>City:</b>
   <%= @bar.city %>
 </p>
-
 <p>
   <b>State:</b>
   <%= @bar.state.state_abbr %>
 </p>
-
 <p>
   <b>Zip:</b>
   <%= @bar.zip %>
 </p>
-
 <p>
   <b>Region:</b>
   <%= @bar.region.name %>
 </p>
-
 <p>
   <b>Phone:</b>
   <%= @bar.phone %>
 </p>
 
-<div id="bar-reviews">
-	<h3>Reviews:</h3>
-	<%= render @reviews %>
-	<% if user_signed_in? %>
-		<h3>Write a review:</h3>
-		<%= form_for [@reviewable, Review.new] do |f| %>
-		  <p><%= f.text_area :body %></p>
-			<%= hidden_field_tag 'reviewable_type', 'bar' %>
-			<%= hidden_field_tag 'reviewable_id', @bar.id %>
-			<%= hidden_field_tag 'user_id', current_user.id %>
-		  <p><%= f.submit "Submit" %></p>
-		<% end %>
-	<% end %><br />
-</div>
+<%- if !manager_signed_in? -%><%= render 'reviews' %><%- end -%>
+<%- if manager_signed_in? -%><%= render 'event' %><%- end -%>
