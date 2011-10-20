@@ -1,4 +1,4 @@
-<h3>Add an event at <%= @bar.name %>:</h3>
+<h3>Advertise an event at <%= @bar.name %>:</h3>
 <%= form_for Event.new, :html => {:multipart => true} do |f| %>
 	<p><%= f.label :name %>
 	<%= f.text_field :name %></p>
