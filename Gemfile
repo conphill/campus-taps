@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'geocoder'
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'annotate'
+gem 'kaminari'
 
 # Use unicorn as the web server
 # gem 'unicorn'

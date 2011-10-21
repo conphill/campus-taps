@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     @title = "Campus Taps | Blog"
-    @posts = Post.recent
+    @posts = Post.page(params[:page]).per(3)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,7 +1,9 @@
 <br /><br />
+<%- if manager_signed_in? -%>
 <div id="manager-controls">
 	<%= link_to 'Edit', edit_bar_path(@bar) %> | <%= link_to 'Back', bars_path %>
 </div>
+<%- end -%>
 
 <p id="notice"><%= notice %></p>
 

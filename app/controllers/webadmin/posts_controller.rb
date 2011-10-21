@@ -1,6 +1,6 @@
 class Webadmin::PostsController < Webadmin::WebadminController  
   def index
-    @posts = Post.drafts
+    @posts = Post.page(params[:page]).per(3)
 
     respond_to do |format|
       format.html # index.html.erb

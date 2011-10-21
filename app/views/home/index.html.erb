@@ -8,13 +8,4 @@
 <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/nytimes.json?callback=twitterCallback2&count=6"></script>
 </div><!--end twitter_update_list-->
 
-<div id="home-specials">
-	<% @events.each do |e| %>
-	<div>
-		<p><%= e.name %></p>
-		<p><%= link_to e.bar.name, e.bar %></p>
-		<p><%= e.description %></p>
-		<p><%= image_tag e.flyer.url(:small), :size => '300x300' %></p>
-	</div>
-	<% end %>
-</div>
+<%= render 'events' %>

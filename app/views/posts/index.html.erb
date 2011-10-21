@@ -7,4 +7,6 @@
   <p><%= link_to "Read more...", "/blog/#{post.id}" %></p>
   <p>0 Comments</p>
 <% end %>
+
+<%= paginate @posts %>
 <br />
