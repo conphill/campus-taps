@@ -1,4 +1,5 @@
 <h1>Campus Taps Blog</h1>
+<% if @posts.empty? %>No Recent Posts.<br /><% end %>
 
 <% @posts.each do |post| %>
   <h3><%= link_to post.title, "/blog/#{post.id}" %></h3>
