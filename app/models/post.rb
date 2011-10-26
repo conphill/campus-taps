@@ -21,7 +21,6 @@ class Post < ActiveRecord::Base
                     :url  => "/assets/posts/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
 
-  validates_attachment_presence :banner_image
   validates_attachment_size :banner_image, :less_than => 2.megabytes
   validates_attachment_content_type :banner_image, :content_type => ['image/jpeg', 'image/png']
   
