@@ -1,18 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Back', webadmin_posts_path %> | <%= link_to 'Edit', edit_webadmin_post_path(@post) %> |
+<%= link_to 'Destroy', [:webadmin,@post], :method => :delete, :confirm => "Are you sure?" %>
+
 <p>
   <b>Title:</b>
   <%= @post.title %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%=raw @post.body %>
-</p>
-
-<p>
-  <b>Admin:</b>
-  <%= @post.admin_id %>
 </p>
 
 <p>
@@ -20,10 +13,14 @@
   <%= @post.permalink %>
 </p>
 
-Photos:
-<% @post.blog_photos.each do |photo| %>
-  <%= image_tag photo.data.url %>
-<% end %>
+<p>
+  <b>Author:</b>
+  <%= @post.admin_id %>
+</p>
 
-<%= link_to 'Edit', edit_webadmin_post_path(@post) %> |
-<%= link_to 'Back', webadmin_posts_path %>
+<%- if @post.banner_image.file? -%><%= image_tag @post.banner_image.url(:default) %><%- end -%>
+
+<p>
+  <b>Body:</b>
+  <%=raw @post.body %>
+</p>

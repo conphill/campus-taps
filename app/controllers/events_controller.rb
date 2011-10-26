@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   # GET /events.xml
   def index
     @events = Event.all
+    @title = "Campus Taps | Events"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
+    @title = @event.name
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,7 @@ class EventsController < ApplicationController
   # GET /events/new.xml
   def new
     @event = Event.new
+    @title = "Campus Taps | New Event"
 
     respond_to do |format|
       format.html # new.html.erb

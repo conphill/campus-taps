@@ -18,7 +18,7 @@ CampusTaps::Application.routes.draw do
 
   # webadmin routes
   namespace :webadmin do
-    resources :bars, :stores, :restaurants, :colleges, :posts
+    resources :bars, :stores, :restaurants, :colleges, :posts, :managers
   end
   
   match '/blog' => 'posts#index'

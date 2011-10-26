@@ -2,6 +2,7 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.xml
   def index
+    @title = "Campus Taps | Liquor Stores"
     @stores = Store.all
 
     respond_to do |format|
@@ -14,6 +15,7 @@ class StoresController < ApplicationController
   # GET /stores/1.xml
   def show
     @store = Store.find_by_permalink(params[:id])
+    @title = "#{@store.name} #{@store.region.name}"
     @product = Product.new
 
     respond_to do |format|

@@ -4,6 +4,7 @@ class BarsController < ApplicationController
   # GET /bars
   # GET /bars.xml
   def index
+    @title = "Campus Taps | Bars"
     @bars = Bar.all
 
     respond_to do |format|
@@ -16,6 +17,7 @@ class BarsController < ApplicationController
   # GET /bars/1.xml
   def show
     @bar = Bar.find_by_permalink(params[:id])
+    @title = "#{@bar.name} #{@bar.region.name}"
     @reviews = @bar.reviews
 
     respond_to do |format|

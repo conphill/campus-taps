@@ -1,8 +1,13 @@
-<%- if user_signed_in? %>
+<%- if !manager_signed_in? -%>
+  <%- if user_signed_in? %>
     <%= "Signed in as #{current_user.full_name}." %>
     <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
   <%- else %>
     <%= link_to 'Sign in with Facebook', user_omniauth_authorize_path(:facebook) %>
   <%- end %>
+<%- else -%>
+	<%= "Signed in as: #{current_manager.bar.name} Web Manager" %>
+	<%= link_to 'Sign out', destroy_manager_session_path, :method => :delete %>
+<%- end -%>
 <br />
 <%= link_to "Blog", '/blog' %> | <%= link_to "Bars", bars_path %> | <%= link_to "Liquor Stores", stores_path %> | <%= link_to "Colleges", colleges_path %> | <%= link_to "Restaurants", restaurants_path  %> | <%= link_to "About", "/about" %> | <%= link_to "Contact" %>

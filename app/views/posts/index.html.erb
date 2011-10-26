@@ -7,4 +7,6 @@
   <p><%=raw smart_truncate(post.body, :words => 100) %></p>
   <p><%= link_to "Read more...", "/blog/#{post.id}" %></p>
 <% end %>
+
+<%= paginate @posts %>
 <br />

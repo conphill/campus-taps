@@ -1,0 +1,14 @@
+<div id="bar-reviews">
+	<h3>Reviews:</h3>
+	<%= render @reviews %>
+	<% if user_signed_in? %>
+		<h3>Write a review:</h3>
+		<%= form_for [@reviewable, Review.new] do |f| %>
+		  <p><%= f.text_area :body %></p>
+			<%= hidden_field_tag 'reviewable_type', 'bar' %>
+			<%= hidden_field_tag 'reviewable_id', @bar.id %>
+			<%= hidden_field_tag 'user_id', current_user.id %>
+		  <p><%= f.submit "Submit" %></p>
+		<% end %>
+	<% end %><br />
+</div>

@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.recent
+    @title = "Campus Taps | Blog"
+    @posts = Post.page(params[:page]).per(3)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
+    @title = @post.title
 
     respond_to do |format|
       format.html # show.html.erb

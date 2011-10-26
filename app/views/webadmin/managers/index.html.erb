@@ -1,0 +1,22 @@
+<h1>Listing Managers</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+	<th>Bar</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @managers.each do |manager| %>
+  <tr>
+    <td><%= link_to manager.email, [:webadmin,manager] %></td>
+	<td><%= manager.bar.name %></td>
+    <td><%= link_to 'Edit', edit_webadmin_manager_path(manager) %></td>
+	<td><%= link_to 'Destroy', [:webadmin,manager], :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
