@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(:version => 20111021195820) do
   end
 
   create_table "product_categories", :force => true do |t|
-    t.string   "CreateProductCategories"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
