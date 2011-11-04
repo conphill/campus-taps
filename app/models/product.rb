@@ -14,7 +14,7 @@
 
 class Product < ActiveRecord::Base
   belongs_to :store
-  has_one :product_category
+  belongs_to :product_category
   
   validates :name, :presence => true
   validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
