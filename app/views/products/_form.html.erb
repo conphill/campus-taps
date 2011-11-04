@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :product_category_id %><br />
-    <%= f.text_field :product_category_id %>
+    <%= collection_select(:product, :product_category_id, ProductCategory.all, :id, :name) %>
   </div>
   <div class="field">
     <%= hidden_field_tag 'product[store_id]', @product.store.id %>
