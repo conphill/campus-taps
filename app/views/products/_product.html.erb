@@ -1,1 +1,1 @@
-<%= product.brand %>&nbsp;<%= product.name %>&nbsp;<span class="price"><%= number_to_currency(product.price) %></span><br />
+<%= product.brand %>&nbsp;<%= product.name %>&nbsp;<span class="price"><%= number_to_currency(product.price) %></span>&nbsp;<%= link_to "Edit", edit_product_path(product) %>&nbsp;<%= link_to "Destroy", product, :method => :delete %><br />
