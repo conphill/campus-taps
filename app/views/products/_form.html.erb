@@ -27,6 +27,9 @@
     <%= f.label :product_category_id %><br />
     <%= f.text_field :product_category_id %>
   </div>
+  <div class="field">
+    <%= hidden_field_tag 'product[store_id]', @product.store.id %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

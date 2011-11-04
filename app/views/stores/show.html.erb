@@ -44,6 +44,10 @@ Prices:<br />
 <br />
 Add Product:
 <%= form_for Product.new do |f| %>
+	<div class="field">
+	  <%= f.label :product_category_id %><br />
+	  <%= collection_select(:product, :product_category_id, ProductCategory.all, :id, :name) %>
+	</div>
   <div class="field">
     <%= f.label :brand %><br />
     <%= f.text_field :brand %>
@@ -55,10 +59,6 @@ Add Product:
   <div class="field">
     <%= f.label :price %><br />
     $ <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :product_category_id %><br />
-    <%= f.text_field :product_category_id %>
   </div>
   <div class="field">
     <%= hidden_field_tag 'product[store_id]', @store.id %>
