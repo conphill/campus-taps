@@ -22,6 +22,6 @@ class Event < ActiveRecord::Base
                     :url => "/assets/events/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/events/:id/:style/:basename.:extension"
   
-  validates_attachment_size :flyer, :less_than => 5.megabytes
+  validates_attachment_size :flyer, :less_than => 3.megabytes
   validates_attachment_content_type :flyer, :content_type => ['image/jpeg', 'image/png']
 end
