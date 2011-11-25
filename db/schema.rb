@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111021195820) do
+ActiveRecord::Schema.define(:version => 20111125190507) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "",       :null => false
@@ -131,6 +131,8 @@ ActiveRecord::Schema.define(:version => 20111021195820) do
     t.string   "banner_image_content_type"
     t.integer  "banner_image_file_size"
     t.datetime "banner_image_updated_at"
+    t.string   "excerpt"
+    t.string   "banner_image_caption"
   end
 
   create_table "product_categories", :force => true do |t|
@@ -142,7 +144,7 @@ ActiveRecord::Schema.define(:version => 20111021195820) do
   create_table "products", :force => true do |t|
     t.string   "brand"
     t.string   "name"
-    t.decimal  "price",               :precision => 8, :scale => 2
+    t.decimal  "price",               :precision => 10, :scale => 0
     t.integer  "product_category_id"
     t.integer  "store_id"
     t.datetime "created_at"

@@ -1,13 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
+<p><%= @post.title %></p>
 <%- if @post.banner_image.file? -%><%= image_tag @post.banner_image.url(:default) %><%- end -%>
-
-<p>
-  <b>Body:</b>
-  <%=raw @post.body %>
-</p>
+<p><%=raw @post.body %></p>

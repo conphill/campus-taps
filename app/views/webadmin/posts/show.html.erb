@@ -15,7 +15,7 @@
 
 <p>
   <b>Author:</b>
-  <%= @post.admin_id %>
+  <%= @post.admin.email %>
 </p>
 
 <%- if @post.banner_image.file? -%><%= image_tag @post.banner_image.url(:default) %><%- end -%>

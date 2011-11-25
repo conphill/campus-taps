@@ -1,11 +1,15 @@
-<div id="home_feed">
-	<ul id="feed_container"></ul>
+<div id="home-feeds">
+	<div id="blog-feed"><h3>Blog Latest</h3><%= render 'home/posts' %></div>
+	<%- if user_signed_in? -%>
+		<div id="friends-feed"><h3>Friends</h3></div>
+		<div id="events-feed"><h3>Top Events</h3></div>
+	<%- end -%>
 </div>
 
 <h3>Twitter Feed</h3>
-<div id="twitter_update_list">
+<div id="twitter-update-list">
 <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/nytimes.json?callback=twitterCallback2&count=6"></script>
+<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/campustaps.json?callback=twitterCallback2&count=6"></script>
 </div><!--end twitter_update_list-->
 
 <%= render 'events' %>

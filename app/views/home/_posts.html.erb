@@ -1,0 +1,8 @@
+<%- @posts.each do |post| -%>
+	<div id="post-visible">
+		<%= image_tag post.banner_image.url(:small) %> <%= link_to post.title, post %>
+		<div id="post-hover" style="display:none;">
+			<%= post.excerpt %>
+		</div>
+	</div>
+<%- end -%>	
