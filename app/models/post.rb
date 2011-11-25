@@ -17,6 +17,7 @@ class Post < ActiveRecord::Base
   belongs_to :admin
   accepts_nested_attributes_for :blog_photos, :allow_destroy => true  
   validates_presence_of :title, :body
+  before_save :make_permalink
   
   has_attached_file :banner_image, :styles => { :default => "300x300>", :small => "50x50>" },
                     :url  => "/assets/posts/:id/:style/:basename.:extension",
@@ -29,4 +30,9 @@ class Post < ActiveRecord::Base
   scope :recent, limit(5).order("created_at DESC")
   scope :published, where("published_at is NOT NULL").order("published_at DESC")
   scope :drafts, where("published_at is NULL").limit(10)
+  
+  private
+    def make_permalink
+      self.permalink = title.parameterize
+    end
 end

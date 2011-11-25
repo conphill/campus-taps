@@ -18,7 +18,8 @@
   <%= @post.admin.email %>
 </p>
 
-<%- if @post.banner_image.file? -%><%= image_tag @post.banner_image.url(:default) %><%- end -%>
+<%- if @post.banner_image.file? -%><%= image_tag @post.banner_image.url(:default) %><%- end -%><br />
+<small><%= @post.banner_image_caption %><small>
 
 <p>
   <b>Body:</b>

@@ -1,4 +1,6 @@
 class CollegesController < ApplicationController
+  before_filter :authenticate_admin!
+  
   # GET /colleges
   # GET /colleges.xml
   def index

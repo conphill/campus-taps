@@ -2,7 +2,7 @@ class Webadmin::PostsController < Webadmin::WebadminController
   before_filter :authenticate_admin!, :except => [:index, :show]
   
   def index
-    @posts = Post.page(params[:page]).per(3).order("created_at DESC")
+    @posts = Post.page(params[:page]).per(5).order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb

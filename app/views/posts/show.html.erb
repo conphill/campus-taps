@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p><%= @post.title %></p>
-<%- if @post.banner_image.file? -%><%= image_tag @post.banner_image.url(:default) %><%- end -%>
+<small><%= @post.created_at.strftime('%m/%d/%Y at %I:%M%p') %></small>
+<small>0 Comments</small><br />
+<%- if @post.banner_image.file? -%><%= image_tag @post.banner_image.url(:default) %><%- end -%><br />
+<small><%= @post.banner_image_caption %></small>
 <p><%=raw @post.body %></p>

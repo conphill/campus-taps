@@ -1,4 +1,4 @@
-<%= link_to "Blog", '/blog' %> | <%= link_to "Bars", bars_path %> | <%= link_to "Liquor Stores", stores_path %> | <%= link_to "Colleges", colleges_path %> | <%= link_to "Restaurants", restaurants_path  %>
+<%= link_to "Blog", '/blog' %> | <%= link_to "Bars", bars_path %> | <%= link_to "Liquor Stores", stores_path %> | <%= link_to "Restaurants", restaurants_path  %>
 <%- if !manager_signed_in? -%>
   <%- if user_signed_in? %>
     <%= "Signed in as #{current_user.full_name}." %>

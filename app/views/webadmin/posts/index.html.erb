@@ -5,6 +5,7 @@
 <% @posts.each do |post| %>
   <h3><%= link_to post.title, [:webadmin,post] %></h3>
   <small>Created on: <%= post.created_at.strftime('%m/%d/%Y at %I:%M%p') %></small>
+  <p>By: <%= post.admin.email %><p>
   <p><%=raw smart_truncate(post.body, :words => 100) %></p>
 <% end %>
 
