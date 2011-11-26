@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
                     :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
 
   validates_attachment_size :banner_image, :less_than => 2.megabytes
-  validates_attachment_content_type :banner_image, :content_type => ['image/jpeg', 'image/png']
+  validates_attachment_content_type :banner_image, :content_type => ['image/jpeg', 'image/png', 'image/gif']
   
   default_scope :order => 'published_at DESC'
   scope :recent, limit(5).order("created_at DESC")
@@ -35,4 +35,5 @@ class Post < ActiveRecord::Base
     def make_permalink
       self.permalink = title.parameterize
     end
+
 end

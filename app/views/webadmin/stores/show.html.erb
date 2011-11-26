@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Edit', edit_webadmin_store_path(@store) %> |
+<%= link_to 'Back', webadmin_stores_path %>
+
 <p>
   <b>Name:</b>
   <%= @store.name %>
@@ -39,7 +42,3 @@
   <b>Phone:</b>
   <%= @store.phone %>
 </p>
-
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>

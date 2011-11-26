@@ -34,6 +34,7 @@ class Webadmin::PostsController < Webadmin::WebadminController
 
   def create
     @post = Post.new(params[:post])
+    @post.admin_id = current_admin.id
 
     respond_to do |format|
       if @post.save
@@ -69,4 +70,5 @@ class Webadmin::PostsController < Webadmin::WebadminController
       format.xml  { head :ok }
     end
   end
+
 end

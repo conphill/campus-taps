@@ -11,19 +11,17 @@
     <th>Phone</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @bars.each do |bar| %>
   <tr>
-    <td><%= bar.name %></td>
+    <td><%= link_to bar.name, [:webadmin,bar] %></td>
     <td><%= bar.description %></td>
     <td><%= bar.address %></td>
     <td><%= bar.city %></td>
     <td><%= bar.state.state_abbr %></td>
     <td><%= bar.zip %></td>
     <td><%= bar.phone %></td>
-    <td><%= link_to 'Show', [:webadmin,bar] %></td>
     <td><%= link_to 'Edit', edit_webadmin_bar_path(bar) %></td>
     <td><%= link_to 'Destroy', [:webadmin,bar], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

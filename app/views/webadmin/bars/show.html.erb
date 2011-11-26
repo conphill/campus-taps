@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Edit', edit_webadmin_bar_path(@bar) %> |
+<%= link_to 'Back', webadmin_bars_path %>
+
 <p>
   <b>Name:</b>
   <%= @bar.name %>
@@ -39,7 +42,3 @@
   <b>Phone:</b>
   <%= @bar.phone %>
 </p>
-
-
-<%= link_to 'Edit', edit_webadmin_bar_path(@bar) %> |
-<%= link_to 'Back', webadmin_bars_path %>

@@ -1,5 +1,7 @@
 <h1>Listing stores</h1>
 
+<%= link_to 'New Store', new_webadmin_store_path %>
+
 <table>
   <tr>
     <th>Name</th>
@@ -11,19 +13,17 @@
     <th>Phone</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @stores.each do |store| %>
   <tr>
-    <td><%= store.name %></td>
+    <td><%= link_to store.name, [:webadmin,store] %></td>
     <td><%= store.description %></td>
     <td><%= store.address %></td>
     <td><%= store.city %></td>
     <td><%= store.state.state_abbr %></td>
     <td><%= store.zip %></td>
     <td><%= store.phone %></td>
-    <td><%= link_to 'Show', [:webadmin,store] %></td>
     <td><%= link_to 'Edit', edit_webadmin_store_path(store) %></td>
     <td><%= link_to 'Destroy', [:webadmin,store], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -31,5 +31,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Store', new_webadmin_store_path %>
